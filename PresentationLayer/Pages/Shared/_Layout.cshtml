@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Thiet bi HQ</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    @{
+        var email = Context.Session.GetString("email");
+     }
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <a asp-page="/Index">Chào mừng đến với HQ Việt Nam</a>
+                <div class="header-top-right">
+                    <a asp-page="/Login">Đăng nhập</a>
+                    <a asp-page="/Register">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="~/Images/logo.png"/>
+                    </div>
+                    <div class="col-9">
+                        <div class="row">
+                            <div class="col-3"><p>Giao hàng tận nơi</p></div>
+                            <div class="col-3"><p>An toàn - Bảo mật</p></div>
+                            <div class="col-3"><p>Bảo hành chính hãng</p></div>
+                            <div class="col-3"><p>Quà tặng miễn phí</p></div>
+                        </div>
+                        <div>
+                            <form class="header-center-search" action="/">
+                                <input type="text" placeholder="Tìm kiếm.." name="search">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <ul>
+                    <li><a asp-page="/Index">Trang chủ</a></li>
+                    <li><a asp-page="/Privacy">Giới thiệu</a></li>
+                    <li><a asp-page="/Index">Sản phẩm</a></li>
+                    <li><a asp-page="/Index">Tin tức</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-page="/Index">HQ VietNam</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Admin/Index">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        Welcome @email
+                    </li>
+                    <li class="nav-item">
+                        <form method="post">
+                            <button type="submit" asp-page="/Logout">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </div>-->
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <!--Here-->
+            <div class="row">
+                <div class="sider-bar col-3">
+                    <h3>Danh mục</h3>
+                    <ul>
+                        <li>Iphone</li>
+                        <li>Realme</li>
+                        <li>Samsung</li>
+                        <li>Apple</li>
+                    </ul>
+                </div>
+                <div class="col-9">
+                    <!--RenderBody nam trong rolemain-->
+                    @RenderBody()
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - PresentationLayer - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
